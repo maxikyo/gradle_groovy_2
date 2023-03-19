@@ -9,9 +9,9 @@ class Product {
     @Id
     private def id
 
-    private def name
+    private String name
 
-    private def email
+    private String email
 
     Product() {
     }

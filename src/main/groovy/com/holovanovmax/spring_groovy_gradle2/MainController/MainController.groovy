@@ -16,7 +16,7 @@ class MainController {
     }
 
 
-    @GetMapping("/getusers")
+    @GetMapping("/users")
     ResponseEntity<List<Product>> getAllProducts(){
         return ResponseEntity.ok(this.productRepository.findAll())
     }
