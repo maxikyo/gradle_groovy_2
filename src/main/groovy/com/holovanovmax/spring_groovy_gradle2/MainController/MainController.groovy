@@ -17,13 +17,13 @@ class MainController {
 
     private final ProductRepository productRepository
 
-    MainController(ProductRepository productRepository){
+    MainController(ProductRepository productRepository) {
         this.productRepository = productRepository
     }
 
 
     @GetMapping("/users")
-    ResponseEntity<List<Product>> getAllProducts(){
+    ResponseEntity<List<Product>> getAllProducts() {
         return ResponseEntity.ok(this.productRepository.findAll())
     }
 
