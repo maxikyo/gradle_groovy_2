@@ -22,11 +22,16 @@ class MainController {
     }
 
 
-    @GetMapping("/users")
-    ResponseEntity<List<Product>> getAllProducts() {
-        return ResponseEntity.ok(this.productRepository.findAll())
-    }
+//    @GetMapping("/users")
+//    ResponseEntity<List<Product>> getAllProducts() {
+//        return ResponseEntity.ok(this.productRepository.findAll())
+//    }
 
+
+    @GetMapping("/users")
+    List<Product> findProducts(){
+        return productRepository.findAll()
+    }
 
     @PostMapping("/users")
     ResponseEntity<Product> createProduct(@RequestBody ProductRequest productRequest) {
