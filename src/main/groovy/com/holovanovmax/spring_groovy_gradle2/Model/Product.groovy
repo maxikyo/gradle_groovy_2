@@ -13,13 +13,4 @@ class Product {
 
     private String email
 
-    Product() {
-    }
-
-    Product(name, email) {
-        this.name = name
-        this.email = email
-    }
-
-
 }
