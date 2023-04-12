@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document
 class Product {
 
     @Id
-    private def id
+    private String id
 
     private String name
 
