@@ -4,13 +4,13 @@ import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 
 @Document("users")
-class Product {
+class users {
 
     @Id
-    private String id
+    String id
 
-    private String name
+    String name
 
-    private String email
+    String email
 
 }

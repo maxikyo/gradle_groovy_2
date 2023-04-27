@@ -1,8 +1,8 @@
-package com.holovanovmax.spring_groovy_gradle2.MainController
+package com.holovanovmax.spring_groovy_gradle2.mainController
 
-import com.holovanovmax.spring_groovy_gradle2.Model.Product
-import com.holovanovmax.spring_groovy_gradle2.Repository.ProductRepository
-import com.holovanovmax.spring_groovy_gradle2.Request.ProductRequest
+
+import com.holovanovmax.spring_groovy_gradle2.Model.users
+import com.holovanovmax.spring_groovy_gradle2.Repository.usersRepository
 import groovy.util.logging.Slf4j
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
@@ -17,30 +17,30 @@ import org.springframework.web.bind.annotation.RestController
 //first variant of controller
 //@Slf4j
 //@RestController
-//class MainController {
+//class controller {
 //
 //
-//    private final ProductRepository productRepository
+//    private final usersRepository productRepository
 //
-//    MainController(ProductRepository productRepository) {
+//    controller(usersRepository productRepository) {
 //        this.productRepository = productRepository
 //    }
 //
 //
 ////    @GetMapping("/users")
-////    ResponseEntity<List<Product>> getAllProducts() {
+////    ResponseEntity<List<users>> getAllProducts() {
 ////        return ResponseEntity.ok(this.productRepository.findAll())
 ////    }
 //
 //
 //    @GetMapping("/users")
-//    List<Product> findProducts() {
+//    List<users> findProducts() {
 //        return productRepository.findAll()
 //    }
 //
 //    @PostMapping("/users")
-//    ResponseEntity<Product> createProduct(@RequestBody ProductRequest productRequest) {
-//        Product product = new Product()
+//    ResponseEntity<users> createProduct(@RequestBody ProductRequest productRequest) {
+//        users product = new users()
 //
 //        return ResponseEntity.status(201).body(this.productRepository.save(product))
 //
@@ -48,7 +48,7 @@ import org.springframework.web.bind.annotation.RestController
 //
 //    @GetMapping("/users/{id}")
 //    ResponseEntity getProductById(@PathVariable String id) {
-//        Optional<Product> product = this.productRepository.findById(id)
+//        Optional<users> product = this.productRepository.findById(id)
 //
 //        if (product.isPresent()) {
 //            return ResponseEntity.ok(product.get())
@@ -59,7 +59,7 @@ import org.springframework.web.bind.annotation.RestController
 //
 //    @DeleteMapping("/users/{id}")
 //    ResponseEntity deleteProductById(@PathVariable String id) {
-//        Optional<Product> product = this.productRepository.findById(id)
+//        Optional<users> product = this.productRepository.findById(id)
 //
 //        if (product.isPresent()) {
 //            this.productRepository.deleteById(id)
@@ -73,29 +73,29 @@ import org.springframework.web.bind.annotation.RestController
 
 @Slf4j
 @RestController
-class MainController {
+class controller {
 
     @Autowired
-    private final ProductRepository productRepository;
+    private final usersRepository productRepository;
 
     @GetMapping("/users")
-    List<Product> findProduct() {
+    List<users> findProduct() {
         return productRepository.findAll()
     }
 
     @GetMapping("/users/{usersId}")
-    Product findProduct(@PathVariable final String usersId) {
-        return productRepository.findById(usersId).orElseGet(Product::new)
+    users findProduct(@PathVariable final String usersId) {
+        return productRepository.findById(usersId).orElseGet(users::new)
     }
 
     @PostMapping("/users")
-    void addUsers(@RequestBody final List<Product> products){
+    void addUsers(@RequestBody final List<users> products){
         productRepository.saveAll(products)
     }
 
     @DeleteMapping("/users/{id}")
     ResponseEntity deleteProductById(@PathVariable String id) {
-        Optional<Product> product = this.productRepository.findById(id)
+        Optional<users> product = this.productRepository.findById(id)
 
         if (product.isPresent()) {
             this.productRepository.deleteById(id)
